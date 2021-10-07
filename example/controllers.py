@@ -6,7 +6,7 @@ from .views import MenuView
 def home(session):
     """Contrôle le menu d'accueil."""
     session.clear()
-    
+
     # Créer le menu et la vue
     menu = Menu("Menu d'accueil")
     menu.add("Sélectionner une catégorie", select_category)
