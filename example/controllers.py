@@ -1,6 +1,6 @@
 from .managers import category_manager
 from .menus import Menu
-from .views import SimpleView, MenuView
+from .views import MenuView
 
 
 def home(session):
