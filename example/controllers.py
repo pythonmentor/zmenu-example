@@ -104,8 +104,8 @@ def done(session):
     view = MenuView(menu)
 
     # Faisons qch avec la catégorie et la sous-catégorie
-    category = session.pop('category')
-    subcategory = session.pop('subcategory')
+    category = session.get('category')
+    subcategory = session.get('subcategory')
     view.display_message(
         f"La catégorie que vous avez choisie est {category}\n"
         f"...et la sous-catégorie est {subcategory}. "
@@ -120,7 +120,7 @@ def done(session):
 
     # Erreur de saisie de l'utilisateur
     view.display_invalid_choice()
-    return done
+    return done, {}
 
 
 def confirm_quit_controller(session, from_controller):
