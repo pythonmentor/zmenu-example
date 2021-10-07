@@ -5,6 +5,7 @@ from .views import MenuView
 
 def home(session):
     """Contrôle le menu d'accueil."""
+    # On vide la session à chaque fois qu'on revient à l'accueil
     session.clear()
 
     # Créer le menu et la vue
@@ -133,8 +134,10 @@ def confirm_quit_controller(session, from_controller):
     choice = view.render()
     if choice in menu:
         option, next_action, kwargs = menu[choice]
+        if option == "Oui":
+            view.display_message("Au revoir !")
         return next_action, kwargs
 
     # Erreur de saisie de l'utilisateur
     view.display_invalid_choice()
-    return confirm_quit_controller, {}
+    return confirm_quit_controller, {"from_controller": from_controller}

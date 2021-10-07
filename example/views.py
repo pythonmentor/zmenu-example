@@ -5,9 +5,9 @@ def default_menu_formatter(menu):
         menu.title,
         "=" * len(menu.title),
         "",
-        *(f"  {i}. {choice}" for i, (choice, *_) in menu.choices.items()),
+        *(f"    {i}. {choice}" for i, (choice, *_) in menu.choices.items()),
         "",
-        "  Votre choix : ",
+        "Votre choix : ",
     ]
     return "\n".join(lines)
 
@@ -26,6 +26,8 @@ class MenuView:
 
     def display_message(self, message):
         """Affiche un message à l'utilisateur."""
+        lines = [f"    {line}" for line in message.split('\n')]
+        message = '\n'.join(lines)
         print(f"\n{message}\n")
 
     def display_invalid_choice(self):
