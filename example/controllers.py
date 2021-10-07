@@ -101,10 +101,10 @@ def handle_categories(session):
         "Merci pour votre sélection\n"
     )
 
-    return done_controller, {}
+    return done, {}
 
 
-def done_controller(session):
+def done(session):
     menu = Menu(
         "Voulez-vous quittez l'application ou retourner à l'accueil ? "
     )
@@ -112,7 +112,7 @@ def done_controller(session):
     menu.add(
         "Quitter l'application",
         confirm_quit_controller,
-        from_controller=done_controller,
+        from_controller=done,
     )
 
     view = MenuView(menu)
@@ -125,7 +125,7 @@ def done_controller(session):
 
     # Erreur de saisie de l'utilisateur
     view.display_invalid_choice()
-    return done_controller
+    return done
 
 
 def confirm_quit_controller(session, from_controller):
