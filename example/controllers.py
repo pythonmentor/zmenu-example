@@ -1,5 +1,5 @@
 from .managers import category_manager
-from .menus import Menu
+from .utils import Menu
 from .views import MenuView
 
 
@@ -108,7 +108,7 @@ def done(session):
     view.display_message(
         f"La catégorie que vous avez choisie est {category}\n"
         f"...et la sous-catégorie est {subcategory}. "
-        "Merci pour votre sélection"
+        "Merci pour votre sélection !"
     )
 
     # Traitement du menu et validation du choix de l'utilisateur
