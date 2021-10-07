@@ -21,7 +21,7 @@ class SimpleView:
         print(message)
 
 
-class MenuView:
+class MenuView(SimpleView):
     """Gère la présentation du menu à l'écran."""
 
     def __init__(self, menu, formatter=default_menu_formatter):
@@ -32,10 +32,6 @@ class MenuView:
     def render(self):
         """Affiche le menu et demande à l'utilisateur de faire un choix."""
         return input(self.formatter(self.menu))
-
-    def display_message(self, message):
-        """Affiche un message à l'utilisateur."""
-        print(message)
 
     def display_invalid_choice(self):
         """Affiche un message à l'utilisateur."""
