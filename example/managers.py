@@ -3,7 +3,7 @@ from random import randint
 
 class CategoryManager:
     """Fake manager qui simule une récupération des infos de catégories et
-    sous-catégories en base de données."""
+    sous-catégories dans une base de données."""
 
     def get_parent_categories(self):
         """Simule une récupération de catégories à partir de la base de
