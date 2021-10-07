@@ -18,7 +18,7 @@ class SimpleView:
 
     def display_message(self, message):
         """Affiche un message à l'utilisateur."""
-        print(message)
+        print(f"\n{message}\n")
 
 
 class MenuView(SimpleView):
