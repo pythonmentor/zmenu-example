@@ -65,7 +65,7 @@ def select_subcategory(session):
 
     # Créer le menu et la vue
     menu = Menu(f"Choix de la sous-catégorie pour {category.lower()}")
-    menu.add(subcategories, handle_categories)
+    menu.add(subcategories, done)
     menu.add("Retour à l'accueil", home)
     menu.add("Retour au choix de la catégorie", select_category)
     menu.add(
@@ -89,21 +89,6 @@ def select_subcategory(session):
     return select_subcategory
 
 
-def handle_categories(session):
-    category = session.pop('category')
-    subcategory = session.pop('subcategory')
-
-    # Créer la vue
-    view = SimpleView()
-    view.display_message(
-        f"\nLa catégorie que vous avez choisie est {category}\n"
-        f"...et la sous-catégorie est {subcategory}. "
-        "Merci pour votre sélection\n"
-    )
-
-    return done, {}
-
-
 def done(session):
     menu = Menu(
         "Voulez-vous quittez l'application ou retourner à l'accueil ? "
@@ -116,6 +101,15 @@ def done(session):
     )
 
     view = MenuView(menu)
+
+    # Faisons qch avec la catégorie et la sous-catégorie
+    category = session.pop('category')
+    subcategory = session.pop('subcategory')
+    view.display_message(
+        f"La catégorie que vous avez choisie est {category}\n"
+        f"...et la sous-catégorie est {subcategory}. "
+        "Merci pour votre sélection"
+    )
 
     # Traitement du menu et validation du choix de l'utilisateur
     choice = view.render()
