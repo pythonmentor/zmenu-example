@@ -11,11 +11,8 @@ class Menu:
         if not isinstance(choices, (list, tuple)):
             choices = [choices]
         for choice in choices:
-            self.choices[str(len(self.choices) + 1)] = (
-                choice,
-                action,
-                kwargs,
-            )
+            key = str(len(self.choices) + 1)
+            self.choices[key] = choice, action, kwargs
 
     def __contains__(self, choice):
         """Valide choix de l'utilisateur."""
